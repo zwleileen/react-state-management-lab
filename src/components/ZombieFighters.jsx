@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function ZombieFighters({team, setTeam}) {
+export default function ZombieFighters({team, setTeam, money, setMoney}) {
 
     const [zombieFighters, setZombieFighters] = useState(
         [
@@ -87,7 +87,12 @@ export default function ZombieFighters({team, setTeam}) {
         ])
     
         const handleAddFighter = (fighter) => {
+            if(money < fighter.price){
+                console.log("Not enough money");
+                return;
+            }
             setTeam([...team, fighter]);  // when Add button is clicked, App.jsx re-renders with updated team and shows new team member
+            setMoney(money - fighter.price)
         }
 
         const inTeam = (fighterId) => {
@@ -103,7 +108,7 @@ export default function ZombieFighters({team, setTeam}) {
             <p>Price: {fighter.price}</p>
             <p>Strength: {fighter.strength}</p>
             <p>Agility: {fighter.agility}</p>
-            <button onClick={() => handleAddFighter(fighter)}>Add</button>
+            <button onClick={() => handleAddFighter(fighter)} disabled={money < fighter.price}>Add</button>
         </ul>))}
         </div>
 
