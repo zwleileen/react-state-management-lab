@@ -14,13 +14,21 @@ const App = () => {
       return team.reduce((sum, member) => sum + member.strength,0)
     }
   }
+
+  const totalAgility = () => {
+    if (team.length === 0) {
+      return 0
+    } else {
+      return team.reduce((sum, member) => sum + member.agility,0)
+    }
+  }
   
   return (
     <>
       <h1>Zombie Fighters</h1>
       <h2>Money: {money}</h2>
       <h2>Team Strength: {totalStrength()}</h2>
-      <h2>Team Agility: </h2>
+      <h2>Team Agility: {totalAgility()}</h2>
       <h2>Team</h2>
       {team.length ===0 ? (
         <p>Pick some team members</p>
