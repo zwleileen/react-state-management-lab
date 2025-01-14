@@ -7,6 +7,26 @@ const App = () => {
   const [money, setMoney] = useState(100)
   const [team, setTeam] = useState([])
 
+  const inTeam = (fighterId) => {
+    return team.some(member => member.id === fighterId)
+} //this function takes fighterId as a parameter and returns boolean i.e. if any member in the team has member.id that is the same as the one passing through fighterId, then it is true
+
+
+  const handleAddFighter = (fighter) => {
+    if(money < fighter.price){
+        console.log("Not enough money");
+        return;
+    }
+    setTeam([...team, fighter]);  
+    setMoney(money - fighter.price)
+}
+
+  const handleRemoveFighter = (member) => {
+      setTeam(team.filter(removeMember => removeMember.id != member.id));  
+      setMoney(money + member.price)
+    }
+
+
   const totalStrength = () => {
     if (team.length === 0) {
       return 0
@@ -35,19 +55,19 @@ const App = () => {
       ) : (
         <div className="members">
           {team.map((member) => (
-            <ul className="member" key={member.id}>
+            <ul className="member" key={member.name}>
               <img src ={member.img}/>
               <p><strong>{member.name}</strong></p>
               <p>Price: {member.price}</p>
               <p>Strength: {member.strength}</p>
               <p>Agility: {member.agility}</p>
+              <button onClick={() => handleRemoveFighter(member)}>Remove</button>
             </ul>
         ))}
         </div>
       )}
-      
       <h2>Fighters</h2>
-      <ZombieFighters team={team} setTeam={setTeam} money={money} setMoney={setMoney}/> 
+      <ZombieFighters team={team} money={money} inTeam={inTeam} addFighter={handleAddFighter}/> 
     </>
   );
 }

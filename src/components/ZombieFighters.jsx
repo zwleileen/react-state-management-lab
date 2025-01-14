@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function ZombieFighters({team, setTeam, money, setMoney}) {
+export default function ZombieFighters({team, money, inTeam, addFighter}) {
 
     const [zombieFighters, setZombieFighters] = useState(
         [
@@ -86,29 +86,17 @@ export default function ZombieFighters({team, setTeam, money, setMoney}) {
           },
         ])
     
-        const handleAddFighter = (fighter) => {
-            if(money < fighter.price){
-                console.log("Not enough money");
-                return;
-            }
-            setTeam([...team, fighter]);  // when Add button is clicked, App.jsx re-renders with updated team and shows new team member
-            setMoney(money - fighter.price)
-        }
-
-        const inTeam = (fighterId) => {
-            return team.some(member => member.id === fighterId)
-        } //this function takes fighterId as a parameter and returns boolean i.e. if any member in the team has member.id that is the same as the one passing through fighterId, then it is true
-
+        
     return(
         <div className="fighters">
         {zombieFighters.filter(fighter => !inTeam(fighter.id)).map((fighter) => (
-        <ul className="character" key={fighter.id}>
+        <ul className="character" key={fighter.name}>
             <img src ={fighter.img}/>
             <p><strong>{fighter.name}</strong></p>
             <p>Price: {fighter.price}</p>
             <p>Strength: {fighter.strength}</p>
             <p>Agility: {fighter.agility}</p>
-            <button onClick={() => handleAddFighter(fighter)} disabled={money < fighter.price}>Add</button>
+            <button onClick={() => addFighter(fighter)} disabled={money < fighter.price}>Add</button>
         </ul>))}
         </div>
 
