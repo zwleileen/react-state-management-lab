@@ -2,6 +2,26 @@
   margin: 16px;
 }
 
+.character {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.fighters {
+  display: flex;
+}
+.members {
+  display: flex;
+}
+.member {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
 ul {
   display: flex;
   flex-wrap: wrap;
@@ -13,4 +33,10 @@ li {
   padding: 8px;
   border: whitesmoke 3px solid;
   border-radius: 8px;
+}
+
+button {
+  display: flex;
+  align-self: flex-start;
+  padding: 10px 20px;
 }
