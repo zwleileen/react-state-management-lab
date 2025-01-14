@@ -6,12 +6,20 @@ import ZombieFighters from './components/ZombieFighters';
 const App = () => {
   const [money, setMoney] = useState(100)
   const [team, setTeam] = useState([])
+
+  const totalStrength = () => {
+    if (team.length === 0) {
+      return 0
+    } else {
+      return team.reduce((sum, member) => sum + member.strength,0)
+    }
+  }
   
   return (
     <>
       <h1>Zombie Fighters</h1>
       <h2>Money: {money}</h2>
-      <h2>Team Strength: </h2>
+      <h2>Team Strength: {totalStrength()}</h2>
       <h2>Team Agility: </h2>
       <h2>Team</h2>
       {team.length ===0 ? (
