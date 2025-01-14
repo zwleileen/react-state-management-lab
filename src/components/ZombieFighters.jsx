@@ -90,9 +90,13 @@ export default function ZombieFighters({team, setTeam}) {
             setTeam([...team, fighter]);  // when Add button is clicked, App.jsx re-renders with updated team and shows new team member
         }
 
+        const inTeam = (fighterId) => {
+            return team.some(member => member.id === fighterId)
+        } //this function takes fighterId as a parameter and returns boolean i.e. if any member in the team has member.id that is the same as the one passing through fighterId, then it is true
+
     return(
         <div className="fighters">
-        {zombieFighters.map((fighter) => (
+        {zombieFighters.filter(fighter => !inTeam(fighter.id)).map((fighter) => (
         <ul className="character" key={fighter.id}>
             <img src ={fighter.img}/>
             <p><strong>{fighter.name}</strong></p>
@@ -104,3 +108,5 @@ export default function ZombieFighters({team, setTeam}) {
         </div>
 
 )}
+
+//Notes: if inTeam(fighter.id) returns true, then .filter(fighter => !true) becomes .filter(fighter => false) and fighter is removed from the array
