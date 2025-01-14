@@ -19,7 +19,7 @@ const App = () => {
     }
     setTeam([...team, fighter]);  
     setMoney(money - fighter.price)
-}
+    }
 
   const handleRemoveFighter = (member) => {
       setTeam(team.filter(removeMember => removeMember.id != member.id));  
