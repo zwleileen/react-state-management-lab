@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function ZombieFighters() {
+export default function ZombieFighters({team, setTeam}) {
 
     const [zombieFighters, setZombieFighters] = useState(
         [
@@ -86,17 +86,20 @@ export default function ZombieFighters() {
           },
         ])
     
+        const handleAddFighter = (fighter) => {
+            setTeam([...team, fighter]);  // when Add button is clicked, App.jsx re-renders with updated team and shows new team member
+        }
 
     return(
-        <div>
+        <div className="fighters">
         {zombieFighters.map((fighter) => (
-        <ul className="character" key={fighter.name}>
+        <ul className="character" key={fighter.id}>
             <img src ={fighter.img}/>
             <p><strong>{fighter.name}</strong></p>
             <p>Price: {fighter.price}</p>
             <p>Strength: {fighter.strength}</p>
             <p>Agility: {fighter.agility}</p>
-            <button>Add</button>
+            <button onClick={() => handleAddFighter(fighter)}>Add</button>
         </ul>))}
         </div>
 
