@@ -2,6 +2,14 @@
   margin: 16px;
 }
 
+.character {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
 ul {
   display: flex;
   flex-wrap: wrap;

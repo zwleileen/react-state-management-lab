@@ -1,6 +1,5 @@
 // src/App.jsx
-
-import { use } from "react";
+import './App.css'
 import { useState } from "react";
 
 const App = () => {
@@ -100,13 +99,13 @@ const App = () => {
     <h2>Team Agility: </h2>
     <h2>Team</h2>
     <p>Pick some team members</p>
-
-    <ul>
-      <h2>name</h2>
-      <p>price</p>
-      <p>strength</p>
-      <p>agility</p>
+    <h2>Fighters</h2>
+    <ul className="character">
       <img src ='https://pages.git.generalassemb.ly/modular-curriculum-all-courses/react-state-management-lab/assets/e41f26.png'/>
+      <p><strong>Name</strong></p>
+      <p>Price: </p>
+      <p>Strength: </p>
+      <p>Agility: </p>
     </ul>
     </>
   );
