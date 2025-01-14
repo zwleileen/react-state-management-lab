@@ -7,7 +7,6 @@
   flex-direction: column;
   border: 1px solid #ccc;
   padding: 10px;
-  text-align: center;
 }
 
 ul {
@@ -21,4 +20,10 @@ li {
   padding: 8px;
   border: whitesmoke 3px solid;
   border-radius: 8px;
+}
+
+button {
+  display: flex;
+  align-self: flex-start;
+  padding: 10px 20px;
 }

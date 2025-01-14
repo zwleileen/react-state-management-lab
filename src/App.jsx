@@ -106,6 +106,7 @@ const App = () => {
       <p>Price: </p>
       <p>Strength: </p>
       <p>Agility: </p>
+      <button>Add</button>
     </ul>
     </>
   );
