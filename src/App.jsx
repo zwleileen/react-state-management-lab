@@ -67,7 +67,7 @@ const App = () => {
         </div>
       )}
       <h2>Fighters</h2>
-      <ZombieFighters team={team} money={money} inTeam={inTeam} addFighter={handleAddFighter}/> 
+      <ZombieFighters money={money} inTeam={inTeam} addFighter={handleAddFighter}/> 
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function ZombieFighters({team, money, inTeam, addFighter}) {
+export default function ZombieFighters({money, inTeam, addFighter}) {
 
     const [zombieFighters, setZombieFighters] = useState(
         [
